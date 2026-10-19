@@ -1,7 +1,7 @@
 # About Me
 My Name is Kyle, I grew up in SLC, Utah but now live in Santa Fe, NM. 
 
-<img width="20%" height="auto" alt="dog" src="https://github.com/user-attachments/assets/4dc2ff1d-90ee-493f-a01b-fa7385d2d813"/>
+![Picture of my Dog](https://github.com/user-attachments/assets/4dc2ff1d-90ee-493f-a01b-fa7385d2d813)
 
 My dog *Beignet*
 ## Education
