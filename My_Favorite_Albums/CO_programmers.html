@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conceptual Overview for Programmers</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="sidebar.js" defer></script>
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+      <h1>Conceptual Overview for Programmers</h1>
+
+      <h2>Summary and Audience</h2>
+      <p>
+        This page is a conceptual overview for programmers with some programming
+        experience who may or may not be familiar with R. These readers want to
+        understand how My Favorite Albums work and they potentially want to know
+        how to expand/modify its functionality.
+      </p>
+      <p>
+        This page will cover the softwares scope including its limitations. It
+        as well will cover the source code structure and how the pieces work
+        together. There also is a section for required libraries and
+        definitions.
+      </p>
+      <h2>What is My Favorite Albums</h2>
+      <p>
+        My Favorite Albums is an interactive web application developed using
+        <a href="R">R</a> and <a href="Shiny">Shiny</a>. It analyzes annual
+        rankings and ratings of albums provided by the user in a CSV file and
+        presents results in a readable fashion. This software provides the UI
+        and r functions allowing a user to only have to provide formatted CSV
+        data. The software is designed in a way such that it is fairly easy to
+        add a new feature set on top of the existing code in the form of a new
+        tab.
+      </p>
+
+      <h2 id="scope">Software Scope</h2>
+      <p>The My Favorite Albums software offers these tabs and analysis</p>
+      <ul class="feature-list">
+        <li>
+          <strong>Number One Albums</strong>
+          <span
+            >Displays the number one ranked album per year from a selected date
+            range</span
+          >
+        </li>
+        <li>
+          <strong>Top Albums by Year</strong>
+          <span
+            >Provides a drop down that allows user to select a year and see
+            their ranking of albums</span
+          >
+        </li>
+        <li>
+          <strong>Artists' Albums</strong>
+          <span
+            >Provides a drop down to select an artist and displays a sorted list
+            of their albums rated</span
+          >
+        </li>
+        <li>
+          <strong>Favorite Artists</strong>
+          <span
+            >Displays a ranked ordering of artists with a minimum amount of
+            ranked albums selected by the user.</span
+          >
+        </li>
+        <li>
+          <strong>Artist Comparison</strong>
+          <span>Provides a plot of year vs rating for two artists.</span>
+        </li>
+        <li>
+          <strong>Vinyl</strong>
+          <span
+            >Displays a sorted list of all albums above a set rating set by the
+            user.</span
+          >
+        </li>
+      </ul>
+      <h2 id="scope">Software Limitations</h2>
+      <p>
+        The software has some limitations as well. The software does not
+        anatomically track a users listening history. It does not provide any
+        way for the user to upload data after is has been run. It as ]well does
+        not provide any way to clean the data. That is if the data has any
+        errors in its format or spelling no fixes will be made.
+      </p>
+      <ul class="feature-list">
+        <li>
+          <strong>Fixed CSV Data</strong>
+          <span
+            >The application is designed in such a way that it will read a CSV
+            and provide results based on that data. It has no way to update that
+            data. The only way is ofr the user to upload a new CSV</span
+          >
+        </li>
+        <li>
+          <strong>Data Consistency is Required</strong>
+          <span
+            >The application does not automatically correct spelling or
+            standardize artist names. so if a user presents an incorrect
+            spelling it will be listed as two different artists.</span
+          >
+        </li>
+      </ul>
+
+      <h2>Source Code Structure</h2>
+      <p>
+        The code is structured across several R files. There is an individual
+        file for handling each tab, these files contain one or more function to
+        create the data to populate the tab.
+      </p>
+      <h3>app.R: Entry Point</h3>
+      <p>
+        This app loads all of the required libraries. It as well sources all of
+        the other files. It lastly creates a new Shiny Ui using the UI and
+        Server code.
+      </p>
+      <h3>app_ui.R: User Interface</h3>
+      <p>
+        This file defines the tabs and the UI used for shiny. It defines the
+        dropdowns, the sliders, and the outputs. This file is also the one that
+        loads the data and some data sorting
+      </p>
+      <h3>app_server.R: Server Logic</h3>
+      <p>
+        This file handles the server logic. It connects the outputs of function
+        to the shiny UI display.
+      </p>
+      <h3>Analysis Tab Files</h3>
+      <p>
+        There is an individual file for each tab that will be displayed. Each of
+        these files contains one or more functions that will analyze the data
+        such that is has the required results to be displayed
+      </p>
+      <h3>CSV Data File</h3>
+      <p>
+        There is also a file CSV data file stored in the data folder that
+        contains that ratings and ranking. The CSV must be formatted as below
+      </p>
+      <pre
+        class="csv-example"
+      ><code>Year,Ranking,Album,Artist,Rating,Vinyl,Ep,Live
+2003,1,Magnolia Electric Co.,Songs:Ohia,10,y,,
+2004,4,The Power Out,Electrelane,8.8,,,
+1991,2,Spiderland,Slint,9.4,,,
+      </code></pre>
+      <h2>How the Components Work Together</h2>
+      <p>
+        Upon startup app.R loads the libraries and source files. The UI reads
+        the CSV, builds the interface, and prepares the choices based ion the
+        data. Shiny displays this UI and runs the server functions. When submit
+        is clicked one of the tba functions is called and the server renders the
+        output.
+      </p>
+      <h2>Required Libraries</h2>
+      <ul class="feature-list">
+        <li>
+          <strong>Shiny</strong>
+          <span
+            >Shiny is a library used for building interactive web
+            applications</span
+          >
+        </li>
+        <li>
+          <strong>dplyr</strong>
+          <span>dplyr is library used for manipulating data frames</span>
+        </li>
+        <li>
+          <strong>ggplot2</strong>
+          <span>ggplot2 is a library used to create graphs</span>
+        </li>
+        <li>
+          <strong>plotly</strong>
+          <span
+            >plotly is a library used to create interactive visualizations</span
+          >
+        </li>
+      </ul>
+
+      <h2>Definitions</h2>
+
+      <h3 id="r">R</h3>
+      <p>
+        R is a programming language commonly used for statistical computing,
+        data analysis, and visualization. In My Favorite Albums, R processes the
+        CSV data, performs calculations, and generates results for display.
+      </p>
+
+      <h3 id="shiny">Shiny</h3>
+      <p>
+        Shiny is an R package for building interactive web applications. It
+        connects interface elements, such as selection controls, to R code that
+        processes inputs and generates outputs. This allows users to interact
+        with an application through a web browser rather than running each
+        analysis manually.
+      </p>
+
+      <h3 id="rstudio">RStudio</h3>
+      <p>
+        RStudio is an integrated development environment (IDE) that provides
+        tools for writing, running, and debugging R code.
+      </p>
+
+      <h3 id="ide">Integrated Development Environment (IDE)</h3>
+      <p>
+        An IDE is a software application that combines tools for software
+        development, such as a code editor, program execution, and debugging. An
+        IDE can make it easier to work on a project, but it is separate from the
+        programming language itself.
+      </p>
+
+      <h3 id="csv">Comma-Separated Values (CSV)</h3>
+      <p>
+        CSV is a text format for storing tabular data. Each line represents a
+        record, and commas separate the fields within that record. In My
+        Favorite Albums, the CSV stores album information in columns that the R
+        functions use for filtering, ranking, and calculating summaries.
+      </p>
+    </main>
+  </body>
+</html>

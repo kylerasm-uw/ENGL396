@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conceptual Overview for Music Fan</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="sidebar.js" defer></script>
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+      <h1>Conceptual Overview for Music Fans</h1>
+
+      <h2>Summary and Audience</h2>
+      <p>
+        This page is a conceptual overview for the music fans who want to
+        analyze their music and have minimal to no programming experience. It is
+        intended for users who want to explore their album data without needing
+        to understand how to program or code.
+      </p>
+      <p>
+        This page will cover what My Favorite Albums is, including what the
+        scope of the software is and what limitations it has. It will also
+        provide a simplified overview of ow the sow the software works. This
+        page will also include useful definitions for terms the reader may not
+        be familiar with.
+      </p>
+      <h2>What is My Favorite Albums</h2>
+      <p>
+        My Favorite Albums is a software application that can be used to analyze
+        albums a user has listened too and provided a rating too. It contains a
+        large amount of ways to accomplish explore this data (see
+        <a href="#scope">Software Scope</a>). The application is built using the
+        <a href="#r">R programming language</a>. It can be run using
+        <a href="#rstudio">RStudio</a>, an
+        <a href="#IDE">integrated development environment (IDE)</a> that
+        provides tools to write and run R code.
+      </p>
+
+      <h2 id="scope">Software Scope</h2>
+      <p>
+        The My Favorite Albums software offers several features to allow users
+        to analyze their album ratings. These include:
+      </p>
+      <ul class="feature-list">
+        <li>
+          <strong>Favorite Albums by Year</strong>
+          <span
+            >View the top-ranked album for each year within a selected
+            range.</span
+          >
+        </li>
+        <li>
+          <strong>Albums from a Specific Year</strong>
+          <span>Explore the highest-ranked albums from a particular year.</span>
+        </li>
+        <li>
+          <strong>Albums by Artist</strong>
+          <span>See how albums from a selected artist are ranked.</span>
+        </li>
+        <li>
+          <strong>Favorite Artists</strong>
+          <span
+            >See a ranking artists based on a minimum number of album
+            ratings.</span
+          >
+        </li>
+        <li>
+          <strong>Compare Artists</strong>
+          <span
+            >Displays a comparisons plot of the album ratings of two
+            artists.</span
+          >
+        </li>
+        <li>
+          <strong>Vinyl Collection</strong>
+          <span>Find highly rated albums that are not owned on vinyl</span>
+        </li>
+      </ul>
+      <h2 id="scope">Software Limitations</h2>
+      <p>
+        The software has some limitations as well. These limitations are below.
+      </p>
+      <ul class="feature-list">
+        <li>
+          <strong>Non automatic listening tracking</strong>
+          <span
+            >The application will not automatically track your listening and
+            update the data. You must manually import your data</span
+          >
+        </li>
+        <li>
+          <strong>CSV preparation is required</strong>
+          <span
+            >The application will not automatically prepare the CSV for the
+            user. The user is responsible for correctly formatting the CSV</span
+          >
+        </li>
+        <li>
+          <strong>No built in spell check</strong>
+          <span
+            >If you are too misspell a name of an artist it will treat the two
+            as completely separate artists</span
+          >
+        </li>
+      </ul>
+      <h2>How does the software work?</h2>
+      <p>
+        This section provides a simplified overview of how the software works.
+        Including the different parts and how they work together. Readers who
+        are not partically interested in this topic can skip this section.
+      </p>
+      <h3>The Music Data</h3>
+      <p>
+        The application takes in data as a <a href="#CSV">CSV</a> file to store
+        album rating data. This data will be what the application uses to
+        perform its analysis. The actual format will be talked about in more
+        depth in the tasks section.
+      </p>
+      <h3>User Interface</h3>
+      <p>
+        The application uses a shiny interface to let the users interact via a
+        web browsers. This allows users to view results without having to use
+        the native RStudio outputs
+      </p>
+      <h3>Programming Language and Tools</h3>
+      <p>
+        The application uses the programming language <a href="#R">R</a> and the
+        <a href="#IDE">IDE</a> <a href="#RStudio">Rstudio</a>. Rstudio is used
+        to write and run the R code.
+      </p>
+      <h3>How it all works together</h3>
+      <p>
+        The whole software works together by using the data from the CSV,
+        running code in Rstudio on said data, and outputting a result on the
+        user interface shiny.
+      </p>
+
+      <h2>Definitions</h2>
+
+      <h3 id="r">R (programming language)</h3>
+      <p>
+        R is a programming language commonly used for statistical computing,
+        data analysis, and creating visualizations.
+      </p>
+
+      <h3 id="rstudio">RStudio</h3>
+      <p>
+        RStudio is an integrated development environment (IDE) that provides
+        tools for writing, running, and debugging R code.
+      </p>
+
+      <h3 id="IDE">IDE (Integrated development environment)</h3>
+      <p>
+        An IDE is an application that contains tools for writing, running, and
+        debugging tools. RStudio is an IDE that is designed for R code. It acts
+        as a single place where a developer can perform all of these functions
+        instead of using multiple applications.
+      </p>
+
+      <h3 id="CSV">CSV (Comma Separated Values)</h3>
+      <p>
+        A CSV is a type of file that stores tabular data(like an excel sheet).
+        Each line represents a row and each command separates a column. For
+        example data might look like (this is not the format that )
+      </p>
+      <pre
+        class="csv-example"
+      ><code>Year,Ranking,Album,Artist,Rating,Vinyl,Ep,Live
+2003,1,Magnolia Electric Co.,Songs:Ohia,10,y,,
+2004,4,The Power Out,Electrelane,8.8,,,
+1991,2,Spiderland,Slint,9.4,,,
+      </code></pre>
+      <p>
+        Where the the first row is the column titles and each subsequent row is
+        the data
+      </p>
+    </main>
+  </body>
+</html>
