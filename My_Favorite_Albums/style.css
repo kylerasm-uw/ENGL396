@@ -1,13 +1,11 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #334155;
 }
-
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -20,11 +18,9 @@ body {
   background: white;
   border-right: 2px solid #7654a6;
 }
-
 .sidebar h2 {
   font-size: 28px;
 }
-
 .sidebar a {
   display: block;
   padding: 10px 14px;
@@ -32,19 +28,16 @@ body {
   text-decoration: none;
   border-radius: 4px;
 }
-
 .sidebar a:hover,
 .sidebar a.current-page {
   color: #7654a6;
   background: #f3eef9;
 }
-
 .sidebar a.current-page {
   padding-left: 30px;
   position: relative;
   font-weight: bold;
 }
-
 .sidebar a.current-page::before {
   content: "";
   position: absolute;
@@ -55,67 +48,56 @@ body {
   height: 12px;
   background: url("assets/music_note.png") center / contain no-repeat;
 }
-
 .nav-heading {
   margin-top: 12px;
   padding: 8px 14px;
   font-size: 22px;
 }
-
 /* Page content */
 .content {
   margin-left: 298px;
   padding: 35px 6%;
   max-width: 1250px;
 }
-
 .content h1 {
   font-size: 28px;
   padding-bottom: 10px;
   border-bottom: 2px solid #ded2ed;
 }
-
 .content h2,
 .content a {
   color: #7654a6;
 }
-
 .content h3 {
   margin-top: 24px;
   margin-bottom: 8px;
   font-size: 19px;
   color: #5e3d8a;
 }
-
 .content p {
   font-size: 15px;
   line-height: 1.7;
 }
-
 /* List of features */
 .feature-list {
   list-style: none;
   padding: 0;
 }
-
 .feature-list li {
   padding: 10px 12px;
   margin-bottom: 8px;
   border-left: 3px solid #7654a6;
   background: #f8f6fb;
 }
-
 .feature-list li strong {
   display: block;
   margin-bottom: 4px;
   color: #292333;
 }
-
 .feature-list li span {
   color: #555;
   font-size: 14px;
 }
-
 /* Example CSV data */
 .csv-example {
   padding: 16px;
@@ -123,10 +105,78 @@ body {
   background: #f3eef9;
   border: 1px solid #ded2ed;
 }
-
 .csv-example code {
   font-family: "Courier New", monospace;
   white-space: pre;
+}
+
+/* Task documentation: procedural lists */
+.content ol,
+.content ul:not(.feature-list) {
+  padding-left: 26px;
+  margin: 12px 0 22px;
+}
+.content ol li,
+.content ul:not(.feature-list) li {
+  padding-left: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.content li > a {
+  overflow-wrap: anywhere;
+}
+
+/* Screenshots and other figures */
+.content figure {
+  margin: 18px 0 24px;
+  text-align: center;
+}
+.content figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid #ded2ed;
+  border-radius: 4px;
+}
+.content figcaption {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Code examples */
+.content pre,
+.content pre.code-example {
+  max-width: 100%;
+  margin: 14px 0 22px;
+  padding: 16px;
+  overflow-x: auto;
+  background: #f3eef9;
+  border: 1px solid #ded2ed;
+  border-radius: 4px;
+  color: #292333;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre;
+}
+.content pre code {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Inline code */
+.content p code,
+.content li code {
+  padding: 2px 5px;
+  background: #f3eef9;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92em;
 }
 
 @media (max-width: 700px) {
@@ -137,7 +187,6 @@ body {
     border-right: none;
     border-bottom: 2px solid #7654a6;
   }
-
   .content {
     margin-left: 0;
     padding: 24px;

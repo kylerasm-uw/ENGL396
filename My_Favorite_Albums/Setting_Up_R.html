@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conceptual Overview for Music Fan</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="sidebar.js" defer></script>
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+      <h1>Setting up RStudio and R</h1>
+      <h2>Overview</h2>
+      <p>
+        This guide if for users who need to install Rstudio, R, or the required
+        packages needed to run My Favorite Album. If you already have one of
+        these categories installed you can skip that section.
+      </p>
+      <h2>prerequisites</h2>
+      <ul>
+        <li>An internet connection</li>
+        <li>Permission to install software</li>
+      </ul>
+
+      <h2>Installing R</h2>
+      <ol>
+        <li>
+          Open the
+          <a href="https://cran.r-project.org/mirrors.html">
+            R project install page </a
+          >.
+        </li>
+        <li>
+          Select a location for install. Select the one closest to you for
+          quickest install.
+        </li>
+        <li>Select <strong>Download for &lt;your OS&gt;</strong></li>
+        <figure>
+          <img
+            src="assets/install_page.png"
+            style="width: 500px; height: auto"
+          />
+          <figcaption>R Install Page</figcaption>
+        </figure>
+        <li>
+          Follow the installation wizard and wait for the installer to finish
+          <ul>
+            <li>make take a few minutes</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2>Installing RStudio</h2>
+      <ol>
+        <li>
+          Open the
+          <a href="hhttps://docs.posit.co/ide/user/download.html">
+            RStudio Desktop download page </a
+          >.
+        </li>
+        <li>Select <strong>Download installer</strong></li>
+        <li>
+          Run the downloaded installer and follow the installation wizard
+          <ul>
+            <li>may take a few minutes</li>
+          </ul>
+        </li>
+        <li>
+          Launch RStudio. Confirm that the RStudio window opens. The main window
+          should look something like below.
+          <figure>
+            <img
+              src="assets/R_Example.png"
+              style="width: 500px; height: auto"
+            />
+            <figcaption>
+              RStudio's main window after a successful installation.
+            </figcaption>
+          </figure>
+        </li>
+      </ol>
+
+      <h2 id="packages">Installing Required Packages</h2>
+      <p>
+        My Favorite Albums uses R packages to create its interface, process
+        album data, and display visualizations. Install the packages before
+        trying to run the application.
+      </p>
+      <ol>
+        <li>Open RStudio.</li>
+        <li>
+          Find the <strong>Console</strong> panel. It is usually located in the
+          lower-left area of the RStudio window.
+        </li>
+        <li>
+          Copy the following command, paste it into the Console, and press
+          Enter:
+          <pre class="code-example"><code>install.packages(c(
+  "shiny",
+  "dplyr",
+  "ggplot2",
+  "plotly"
+))</code></pre>
+        </li>
+        <li>
+          Wait while R downloads and installs the packages. This may take a few
+          minutes.
+        </li>
+        <li>
+          Check the Console for errors. When installation finishes, the Console
+          prompt should return and you should be able to enter another command.
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>
