@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extending My Favorite Albums</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="sidebar.js" defer></script>
+  </head>
+  <body>
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+      <h1>Extending My Favorite Albums</h1>
+
+      <h2>Overview</h2>
+      <p>
+        This guide is for users who have some experience with programming and
+        likely R. This guide explains how to extend my favorite albums by adding
+        a new tab
+      </p>
+
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>RStudio and R installed.</li>
+        <li>My Favorite Albums downloaded</li>
+        <li>Basic knowledge of programming.</li>
+      </ul>
+
+      <h2>Adding Your Own Tab</h2>
+      <p>
+        To extend My Favorite Albums, create a new tab that provides an
+        additional way to analyze the album data. Before starting, consider what
+        information your tab will need as input, such as a year, artist, or
+        other selection.
+      </p>
+
+      <ol>
+        <li>
+          Create a new R file in the main directory. Give the file a name that
+          relates to the function the tab will serve. such as
+          <code>My_Tab.R</code>.
+        </li>
+
+        <li>
+          Write a function in your new file that can be called later from
+          <code>app_server.R</code>. This function should perform some analysis
+          on the album data and return a result, such as a list.
+        </li>
+
+        <li>
+          Open <code>app.R</code> and add your new file to the list of sourced
+          files. For example:
+
+          <pre class="code-example"><code>source("My_Tab.R")</code></pre>
+        </li>
+
+        <li>
+          Open <code>app_ui.R</code> and add your new tab to the existing
+          tabset. The example below shows the tab panel for Top Albums by Year.
+
+          <pre
+            class="code-example"
+          ><code>tabPanel("Top Albums by Year", htmlOutput("textTopAlbums"),
+    selectInput("year", "Choose a year:", all_years),
+    actionButton("action_button2", label = "Submit"),
+    htmlOutput("textBreak"), tableOutput("year_table"))</code></pre>
+        </li>
+
+        <li>
+          Open <code>app_server.R</code> and add code to call the function you
+          created earlier. This code should also generate any HTML needed for
+          headings and display elements. It should as well as connect buttons to
+          their corresponding events. The example below shows how the Top Albums
+          by Year tab is created in <code>app_server.R</code>.
+
+          <pre class="code-example"><code>output$textTopAlbums &lt;- renderUI({
+    HTML("&lt;h2&gt;Top Albums by Year&lt;/h2&gt;&lt;br&gt;")
+})
+
+output$textBreak &lt;- renderUI({
+    HTML("&lt;br&gt;&lt;br&gt;")
+})
+
+observeEvent(input$action_button2, {
+
+    output$year_table &lt;- renderTable({
+        return(year_albums(input$year))
+    })
+
+})</code></pre>
+        </li>
+
+        <li>
+          Run <code>app.R</code> again and verify that your new tab appears.
+          Test any inputs that you created and make the resulting data is
+          correct.
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>

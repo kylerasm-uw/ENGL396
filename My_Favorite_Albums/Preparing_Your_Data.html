@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Conceptual Overview for Music Fan</title>
+    <title>Preparing Your Data</title>
     <link rel="stylesheet" href="style.css" />
     <script src="sidebar.js" defer></script>
   </head>
@@ -11,38 +11,83 @@
     <div id="sidebar-container"></div>
 
     <main class="content">
-      <h1>Getting Started with My Favorite Albums</h1>
+      <h1>Preparing Your Data</h1>
 
-      <h2>Installing My Favorite Albums</h2>
+      <h2>Overview</h2>
+      <p>
+        My Favorite Albums uses a
+        <a href="CO_music_fans.html#CSV">CSV</a>
+        to store album data. The file must follow a specific format for the
+        application to read it correctly. An example is shown below. Note that
+        the ranking represents the ranking against other albums in the same
+        year.
+      </p>
+
+      <pre
+        class="csv-example"
+      ><code>Year,Ranking,Album,Artist,Rating,Vinyl,Ep,Live
+1998,1,American Water,Silver Jews,10,y,,
+1998,2,Mezzanine,Massive Attack,8.8,,,
+1998,3,Car Wheels On a Gravel Road,Lucinda Williams,8.6,,,
+1999,1,When the Pawn,Fiona Apple,9.5,,,
+1999,2,Le Tigre,Le Tigre,7,,,
+2000,1,Stories from the City Stories from the Sea,PJ Harvey,9,,,
+</code></pre>
+
+      <h2>Creating Your Own Data</h2>
       <ol>
-        <li>Create a folder for My Favorite Albums</li>
         <li>
-          Go to this git hub repo
-          https://github.com/UW-Example-Student/MyFavoriteAlbums
+          Open a spreadsheet application of your choice, for example Google
+          Sheets or Microsoft Excel.
         </li>
         <li>
-          Click on the green Code button and click download zip
+          In the first row enter the column names in this order:
+          <code>Year, Ranking, Album, Artist, Rating, Vinyl, Ep, Live</code>.
+        </li>
+        <li>
+          Add one row for each album you want to include. Enter the year,
+          ranking, album title, artist, and rating.
           <ul>
-            <li>download to the folder from earlier</li>
+            <li>
+              If you are comfortable working with spreadsheets, you can leave
+              the ranking column blank and have your software solve for the
+              ranking from the rating
+            </li>
           </ul>
         </li>
-        TODO include png from assets folder.
-        <li>Unzip all the files to the folder</li>
+        <li>
+          Sort your data first by <strong>Year</strong> and then by
+          <strong>Ranking</strong>. The example below shows how the data might
+          look in Excel.
+          <figure>
+            <img src="assets/excel.png" style="width: 500px; height: auto" />
+            <figcaption>Example of album data in Excel</figcaption>
+          </figure>
+        </li>
+        <li>
+          Export the spreadsheet as a CSV file named
+          <code>album-rankings.csv</code>.
+        </li>
       </ol>
 
-      <h2>Running My Favorite Albums</h2>
+      <h2>Importing Your Data into My Favorite Albums</h2>
       <ol>
         <li>
-          Open RStudio and move to the folder you installe dmy favorite albums
-          to
+          Open the folder on your computer where you saved the My Favorite
+          Albums application.
         </li>
-        <li>clik on the file App.R and click "Run App"</li>
+        <li>Open the subfolder named <code>data</code>.</li>
         <li>
-          If there is any issues with libraries or packages go back to Setting
-          Up Rstudio and follow the Installing Required packages steps
+          Replace the existing <code>album-rankings.csv</code> file with your
+          created CSV file. Make sure the replacement file has the same name.
         </li>
-        <li>If everything is succeful you should see this window appear</li>
-        TOTO include image from assets folder
+        <li>
+          Run My Favorite Albums and check that your data appears correctly. For
+          instructions, return to
+          <a href="Setting_Up_My_Fav_Albums.html#Running">
+            Setting Up My Favorite Albums </a
+          >.
+        </li>
       </ol>
     </main>
   </body>
